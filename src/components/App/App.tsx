@@ -9,7 +9,7 @@ import VoteOptions from '../VoteOptions/VoteOptions.tsx';
 function App() {
   const [votes, setVotes] = useState<Votes>({ good: 0, neutral: 0, bad: 0 });
 
-  function handleVote(type: VoteType) {
+  function handleVote(type: VoteType): void {
     setVotes({
       ...votes,
       [type]: votes[type] + 1,
@@ -23,7 +23,7 @@ function App() {
   return (
     <div className={css.app}>
       <Cafeinfo />
-      <VoteOptions />
+      <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={true} />
     </div>
   );
 }
