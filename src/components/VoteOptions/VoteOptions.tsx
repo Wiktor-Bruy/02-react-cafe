@@ -1,6 +1,8 @@
 import css from './VoteOptions.module.css';
 
-type Vot = (a: string) => void;
+import { VoteType } from '../../types/votes.ts';
+
+type Vot = (a: VoteType) => void;
 type Res = () => void;
 interface Props {
   onVote: Vot;
