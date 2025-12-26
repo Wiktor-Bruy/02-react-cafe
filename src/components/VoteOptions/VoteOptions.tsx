@@ -1,6 +1,6 @@
 import css from './VoteOptions.module.css';
 
-import { VoteType } from '../../types/votes.ts';
+import { type VoteType } from '../../types/votes.ts';
 
 type Vot = (a: VoteType) => void;
 type Res = () => void;
@@ -11,9 +11,9 @@ interface Props {
 }
 
 export default function VoteOptions({ onVote, onReset, canReset }: Props) {
-  function updateValue(ev) {
-    const type = ev.target.textContent.toLowerCase();
-    onVote(type);
+  function updateValue(ev: React.MouseEvent<HTMLButtonElement>) {
+    const typeBtn: VoteType = ev.currentTarget.textContent.toLowerCase();
+    onVote(typeBtn);
   }
 
   return (

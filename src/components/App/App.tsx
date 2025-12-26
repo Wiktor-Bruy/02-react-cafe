@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import css from './App.module.css';
 
-import { Votes, VoteType } from '../../types/votes.ts';
+import { type Votes, type VoteType } from '../../types/votes.ts';
 
 import Cafeinfo from '../CafeInfo/CafeInfo.tsx';
 import VoteOptions from '../VoteOptions/VoteOptions.tsx';
