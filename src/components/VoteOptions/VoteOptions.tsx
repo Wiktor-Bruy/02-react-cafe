@@ -2,29 +2,22 @@ import css from './VoteOptions.module.css';
 
 import { type VoteType } from '../../types/votes.ts';
 
-type Vot = (a: VoteType) => void;
-type Res = () => void;
 interface Props {
-  onVote: Vot;
-  onReset: Res;
+  onVote: (a: VoteType) => void;
+  onReset: () => void;
   canReset: boolean;
 }
 
 export default function VoteOptions({ onVote, onReset, canReset }: Props) {
-  function updateValue(ev: React.MouseEvent<HTMLButtonElement>) {
-    const typeBtn = ev.currentTarget.textContent.toLowerCase() as VoteType;
-    onVote(typeBtn);
-  }
-
   return (
     <div className={css.container}>
-      <button className={css.button} onClick={updateValue}>
+      <button className={css.button} onClick={() => onVote('good')}>
         Good
       </button>
-      <button className={css.button} onClick={updateValue}>
+      <button className={css.button} onClick={() => onVote('neutral')}>
         Neutral
       </button>
-      <button className={css.button} onClick={updateValue}>
+      <button className={css.button} onClick={() => onVote('bad')}>
         Bad
       </button>
       {canReset ? (
