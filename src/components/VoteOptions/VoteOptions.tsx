@@ -12,7 +12,7 @@ interface Props {
 
 export default function VoteOptions({ onVote, onReset, canReset }: Props) {
   function updateValue(ev: React.MouseEvent<HTMLButtonElement>) {
-    const typeBtn: VoteType = ev.currentTarget.textContent.toLowerCase();
+    const typeBtn = ev.currentTarget.textContent.toLowerCase() as VoteType;
     onVote(typeBtn);
   }
 
